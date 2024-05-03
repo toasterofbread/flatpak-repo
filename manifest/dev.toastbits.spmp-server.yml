@@ -5,6 +5,14 @@ runtime: org.freedesktop.Platform
 runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 
+cleanup:
+  - /include
+  - /share
+  - /bin/curl*
+  - '*.a'
+  - '*.la'
+  - /lib/python*
+
 finish-args:
   # Network access
   - --share=network
