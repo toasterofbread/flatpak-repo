@@ -41,15 +41,17 @@ jobs:
         run: |
           echo "flatpak.toastbits.dev" > CNAME
 
-      - name: Install pip packages
+      - name: Install pip
         run: dnf install -y python3-pip
 
       - name: Install Python packages
         run: pip3 install xmltodict beautifulsoup4 minify-html
 
       - name: Generate index.html
-        run: |
-          python3 generatePage.py dev.toastbits ./package ./index.html
+        run: python3 generatePage.py dev.toastbits ./package ./index.html
+
+      - name: Install Java 17 extension
+        run: flatpak install flathub org.freedesktop.Sdk.Extension.openjdk17
 
       - name: Build
         uses: toasterofbread/flatter@main
