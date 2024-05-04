@@ -13,14 +13,13 @@ jobs:
 
     strategy:
       matrix:
-        arch: [x86_64, aarch64]
+        arch:
+          - x86_64
+          - aarch64
       fail-fast: true
       max-parallel: 1
 
     steps:
-      - name: test arch
-        run: echo "flatpak install -y flathub org.freedesktop.Sdk.Extension.openjdk17/${{ matrix.arch }}/23.08"
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -56,11 +55,21 @@ jobs:
       - name: Install Java 17 extension
         run: flatpak install -y flathub org.freedesktop.Sdk.Extension.openjdk17/${{ matrix.arch }}/23.08
 
-      - name: Build
+      - name: Build (x86_64-only)
         uses: toasterofbread/flatter@main
         with:
           files: |
             package/spmp/dev.toastbits.spmp.yml
+          arch: ${{ matrix.arch }}
+          gpg-sign: ${{ steps.gpg.outputs.fingerprint }}
+          upload-bundles: true
+          upload-pages-artifact: false
+
+      - name: Build
+        uses: toasterofbread/flatter@main
+        if: ${{ matrix.arch == 'x86_64' }}
+        with:
+          files: |
             package/spmp-server/dev.toastbits.spmp-server.yml
           arch: ${{ matrix.arch }}
           gpg-sign: ${{ steps.gpg.outputs.fingerprint }}
