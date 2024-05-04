@@ -23,6 +23,13 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Install Python and Python packages
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - run: pip install xmltodict bs4 minify-html
+
       - name: Setup QEMU
         if: ${{ matrix.arch == 'aarch64' }}
         id: qemu
