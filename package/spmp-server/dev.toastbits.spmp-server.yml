@@ -142,14 +142,9 @@ modules:
       - type: file
         path: spmp-server.sh
 
-      # - type: file
-      #   url: https://github.com/toasterofbread/spmp-server/releases/download/v1.0.0/spms-v1.0.0-linux-x86_64.kexe
-      #   sha256: f933335c2708a0478b76f9e1aceea0465ea881deb83263f54c4e9ff730874cde
-      #   dest-filename: spms.kexe
-      #   only-arches: [x86_64]
-
       - type: file
-        path: /home/toaster/Projects/Compose/spmp/spmp-server/build/bin/linux-x86_64/debugExecutable/spms-linux-x86_64.kexe
+        url: https://github.com/toasterofbread/spmp-server/releases/download/v1.0.0/spms-v1.0.0-linux-x86_64.kexe
+        sha256: f933335c2708a0478b76f9e1aceea0465ea881deb83263f54c4e9ff730874cde
         dest-filename: spms.kexe
         only-arches: [x86_64]
 
