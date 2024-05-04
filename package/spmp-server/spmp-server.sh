@@ -1,0 +1,1 @@
+/app/bin/spms.kexe --icon /app/share/icons/hicolor/64x64/apps/dev.toastbits.spmp-server.png "$@"

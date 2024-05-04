@@ -41,11 +41,16 @@ jobs:
         run: |
           echo "flatpak.toastbits.dev" > CNAME
 
+      - name: Generate index.html
+        run: |
+          python generatePage.py dev.toastbits ./package ./index.html
+
       - name: Build
         uses: toasterofbread/flatter@main
         with:
           files: |
-            manifest/dev.toastbits.spmp-server.yml
+            package/spmp/dev.toastbits.spmp.yml
+            package/spmp-server/dev.toastbits.spmp-server.yml
           arch: ${{ matrix.arch }}
           gpg-sign: ${{ steps.gpg.outputs.fingerprint }}
           upload-bundles: true

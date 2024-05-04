@@ -28,7 +28,8 @@ finish-args:
 
 cleanup:
   - /include
-  - /share
+  - /share/man
+  - /share/aclocal
   - /bin/curl*
   - '*.a'
   - '*.la'
@@ -110,7 +111,7 @@ modules:
         url: https://github.com/besser82/libxcrypt/releases/download/v4.4.36/libxcrypt-4.4.36.tar.xz
         sha256: e5e1f4caee0a01de2aee26e3138807d6d3ca2b8e67287966d1fefd65e1fd8943
 
-  - ../shared-modules/libappindicator/libappindicator-gtk3-12.10.json
+  - ../../shared-modules/libappindicator/libappindicator-gtk3-12.10.json
 
   - name: libcurl
     buildsystem: simple
@@ -122,15 +123,33 @@ modules:
         url: https://curl.se/download/curl-8.7.1.tar.gz
         sha256: f91249c87f68ea00cf27c44fdfa5a78423e41e71b7d408e5901a9896d905c495
 
+  - name: icon
+    buildsystem: simple
+    build-commands:
+      - install -D icon.png /app/share/icons/hicolor/64x64/apps/dev.toastbits.spmp-server.png
+    sources:
+      - type: file
+        url: https://raw.githubusercontent.com/toasterofbread/spmp-server/8510111cdcf34f426350571250ae57995107618a/icon.png
+        dest-filename: icon.png
+        sha256: 3957489cc266b53e8ac46fa4c93837f1db039d9d09ed20548603e6208e5514e0
+
   - name: spmp-server
     buildsystem: simple
     build-commands:
-      - ls
-      - install -D spms.kexe /app/bin/spms
+      - install -Dm755 spmp-server.sh /app/bin/spms
+      - install -Dm755 spms.kexe /app/bin/spms.kexe
     sources:
       - type: file
-        url: https://github.com/toasterofbread/spmp-server/releases/download/v1.0.0/spms-v1.0.0-linux-x86_64.kexe
-        sha256: f933335c2708a0478b76f9e1aceea0465ea881deb83263f54c4e9ff730874cde
+        path: spmp-server.sh
+
+      # - type: file
+      #   url: https://github.com/toasterofbread/spmp-server/releases/download/v1.0.0/spms-v1.0.0-linux-x86_64.kexe
+      #   sha256: f933335c2708a0478b76f9e1aceea0465ea881deb83263f54c4e9ff730874cde
+      #   dest-filename: spms.kexe
+      #   only-arches: [x86_64]
+
+      - type: file
+        path: /home/toaster/Projects/Compose/spmp/spmp-server/build/bin/linux-x86_64/debugExecutable/spms-linux-x86_64.kexe
         dest-filename: spms.kexe
         only-arches: [x86_64]
 

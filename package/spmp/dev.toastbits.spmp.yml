@@ -1,0 +1,56 @@
+id: dev.toastbits.spmp
+command: spmp
+
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.openjdk17
+
+finish-args:
+  # Network access
+  - --share=network
+
+  # GUI
+  - --share=ipc
+  - --socket=x11
+  - --device=dri
+
+  # MPRIS
+  - --own-name=org.mpris.MediaPlayer2.spmp
+
+  # Discord presence
+  - --filesystem=xdg-run/app/com.discordapp.Discord
+
+  # Notifications
+  - --talk-name=org.freedesktop.Notifications
+
+modules:
+  - name: openjdk
+    buildsystem: simple
+    build-commands:
+      - /usr/lib/sdk/openjdk17/install.sh
+
+  - name: icon
+    buildsystem: simple
+    build-commands:
+      - install -D icon.png /app/share/icons/hicolor/512x512/apps/dev.toastbits.spmp.png
+    sources:
+      - type: file
+        url: https://raw.githubusercontent.com/toasterofbread/spmp/35d683bcbcef06b6622961c98464de610b5e5925/metadata/en-US/images/icon.png
+        dest-filename: icon.png
+        sha256: ee2d86557aed3fe180d793624302d8ef4d45dac404cb78b00d7e30bc544bdeb0
+
+  - name: spmp
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 spmp.sh /app/bin/spmp
+      - install -D spmp.jar /app/bin/spmp.jar
+    only-arches: [x86_64]
+    sources:
+      - type: file
+        path: spmp.sh
+      - type: file
+        url: https://github.com/toasterofbread/spmp/releases/download/v0.3.2/spmp-v0.3.2-linux-x86_64.jar
+        sha256: 31ca902f087a445499d5df41b1e57c3348a9fe2919d03bddda7b1cadfbd68067
+        dest-filename: spmp.jar

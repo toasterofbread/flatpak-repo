@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+    <id>dev.toastbits.spmp-server</id>
+
+    <name>spmp-server</name>
+    <summary>Audio playback backend for SpMp</summary>
+    <description>
+        <p>SpMs (short for spmp-server) is the server component of SpMp's desktop version.</p>
+        <p>The primary mode of SpMs is to run a server instance over TCP on the specified port. It comes packaged with a command-line interface for controlling the server itself as well as interacting with other servers.</p>
+    </description>
+
+    <icon type="remote">https://raw.githubusercontent.com/toasterofbread/spmp/main/metadata/en-US/images/icon.png</icon>
+
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>GPL-3.0-only</project_license>
+    <content_rating type="oars-1.0" />
+
+    <url type="homepage">https://spmp.toastbits.dev/</url>
+    <url type="bugtracker">https://github.com/toasterofbread/spmp-server/issues</url>
+    <url type="donation">https://ko-fi.com/toasterofbread</url>
+    <url type="translate">https://github.com/toasterofbread/spmp/wiki/App-localisation</url>
+    <url type="vcs-browser">https://github.com/toasterofbread/spmp-server</url>
+
+    <releases>
+        <release version="v1.0.0" date="2024-05-03">
+        <url type="details">https://github.com/toasterofbread/spmp-server/releases/tag/v1.0.0</url>
+        <description>
+            <h3>Release in preparation for publishing to Flathub</h3>
+
+            <p>Beginning with this release, spmp-server version names are decoupled from spmp version names.</p>
+            <h2>Changes</h2>
+            <ul>
+                <li>Add media session control using mediasession-kt (currently only on Linux-x86_64)</li>
+                <li>Fix crash when gtk_init fails</li>
+                <li>Improve messages when an exception is ignored</li>
+            </ul>
+        </description>
+        </release>
+    </releases>
+
+    <provides>
+        <binary>spms</binary>
+    </provides>
+
+    <developer id="tld.vendor">
+        <name>Talo Halton</name>
+    </developer>
+
+    <branding>
+        <color type="primary" scheme_preference="light">#d6beeb</color>
+        <color type="primary" scheme_preference="dark">#43265c</color>
+    </branding>
+</component>
