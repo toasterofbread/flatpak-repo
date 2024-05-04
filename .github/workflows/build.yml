@@ -18,6 +18,9 @@ jobs:
       max-parallel: 1
 
     steps:
+      - name: test arch
+        run: echo "flatpak install -y flathub org.freedesktop.Sdk.Extension.openjdk17/${{ matrix.arch }}/23.08"
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -51,7 +54,7 @@ jobs:
         run: python3 generatePage.py dev.toastbits ./package ./index.html
 
       - name: Install Java 17 extension
-        run: flatpak install -y flathub org.freedesktop.Sdk.Extension.openjdk17//23.08
+        run: flatpak install -y flathub org.freedesktop.Sdk.Extension.openjdk17/${{ matrix.arch }}/23.08
 
       - name: Build
         uses: toasterofbread/flatter@main
