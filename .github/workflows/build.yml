@@ -23,14 +23,12 @@ jobs:
         with:
           submodules: recursive
 
-      - run: apt-get update && apt-get install -y lsb-release
-
-      - name: Install Python and Python packages
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-      - run: pip install xmltodict bs4 minify-html
+      # - name: Install Python and Python packages
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.11'
+      #     cache: 'pip'
+      # - run: pip install xmltodict bs4 minify-html
 
       - name: Setup QEMU
         if: ${{ matrix.arch == 'aarch64' }}
@@ -52,7 +50,7 @@ jobs:
 
       - name: Generate index.html
         run: |
-          python generatePage.py dev.toastbits ./package ./index.html
+          python3 generatePage.py dev.toastbits ./package ./index.html
 
       - name: Build
         uses: toasterofbread/flatter@main
