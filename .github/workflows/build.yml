@@ -51,7 +51,7 @@ jobs:
         run: python3 generatePage.py dev.toastbits ./package ./index.html
 
       - name: Install Java 17 extension
-        run: flatpak install flathub org.freedesktop.Sdk.Extension.openjdk17
+        run: flatpak install -y flathub org.freedesktop.Sdk.Extension.openjdk17//23.08
 
       - name: Build
         uses: toasterofbread/flatter@main
