@@ -57,6 +57,7 @@ jobs:
 
       - name: Build (x86_64-only)
         uses: toasterofbread/flatter@main
+        if: ${{ matrix.arch == 'x86_64' }}
         with:
           files: |
             package/spmp/dev.toastbits.spmp.yml
@@ -67,7 +68,6 @@ jobs:
 
       - name: Build
         uses: toasterofbread/flatter@main
-        if: ${{ matrix.arch == 'x86_64' }}
         with:
           files: |
             package/spmp-server/dev.toastbits.spmp-server.yml
