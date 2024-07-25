@@ -5,6 +5,13 @@ runtime: org.freedesktop.Platform
 runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 
+# Used by ayatana-ido
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.vala
+build-options:
+  prepend-path: "/usr/lib/sdk/vala/bin"
+  prepend-ld-library-path: "/usr/lib/sdk/vala/lib"
+
 finish-args:
   # Network access
   - --share=network
@@ -111,7 +118,7 @@ modules:
         url: https://github.com/besser82/libxcrypt/releases/download/v4.4.36/libxcrypt-4.4.36.tar.xz
         sha256: e5e1f4caee0a01de2aee26e3138807d6d3ca2b8e67287966d1fefd65e1fd8943
 
-  - ../../shared-modules/libappindicator/libappindicator-gtk3-12.10.json
+  - ../../dependencies/libayatana-appindicator3-0.1.yml
 
   - name: libcurl
     buildsystem: simple
@@ -143,13 +150,13 @@ modules:
         path: spmp-server.sh
 
       - type: file
-        url: https://github.com/toasterofbread/spmp-server/releases/download/v1.0.0/spms-v1.0.0-linux-x86_64.kexe
-        sha256: f933335c2708a0478b76f9e1aceea0465ea881deb83263f54c4e9ff730874cde
+        url: https://github.com/toasterofbread/spmp-server/releases/download/v0.4.0-beta1/spms-v0.4.0-beta1-linux-x86_64.kexe
+        sha256: ddd5f4ed6d081564ecc706cff4aae47fa7e02bdebd999c4e6b76622b3698f525
         dest-filename: spms.kexe
         only-arches: [x86_64]
 
       - type: file
-        url: https://github.com/toasterofbread/spmp-server/releases/download/v1.0.0/spms-v1.0.0-linux-arm64.kexe
-        sha256: 94ba9f88c51f01348040fd6665f4f45b2a9264ec9d73c059d1ba52a25747bd39
+        url: https://github.com/toasterofbread/spmp-server/releases/download/v0.4.0-beta1/spms-v0.4.0-beta1-linux-arm64.kexe
+        sha256: b71ef7f90414257d23b1483811a9e159f94b7991f5715e0be10447b17350839c
         dest-filename: spms.kexe
         only-arches: [aarch64]
