@@ -50,10 +50,10 @@
     <content_rating type="oars-1.0" />
 
     <url type="homepage">https://spmp.toastbits.dev/</url>
-    <url type="bugtracker">https://github.com/toasterofbread/spmp-server/issues</url>
+    <url type="bugtracker">https://github.com/toasterofbread/spmp/issues</url>
     <url type="donation">https://ko-fi.com/toasterofbread</url>
     <url type="translate">https://github.com/toasterofbread/spmp/wiki/App-localisation</url>
-    <url type="vcs-browser">https://github.com/toasterofbread/spmp-server</url>
+    <url type="vcs-browser">https://github.com/toasterofbread/spmp</url>
 
     <releases>
         <release version="v0.3.2" date="2024-05-03">

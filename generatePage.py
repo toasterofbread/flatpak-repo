@@ -4,7 +4,6 @@ from os import path
 import xmltodict
 from bs4 import BeautifulSoup
 import re
-import minify_html
 
 STATIC_CONTENT = """
 <div style='display: flex; flex-direction: column; gap: 10px;'>
@@ -24,8 +23,9 @@ STATIC_CONTENT = """
     <br>
     <h2>Available packages</h2>
 
-    <p>To install a package:</p>
-    <p style="margin-bottom: 20px"><code>flatpak install &lt;&#8203;package id&gt;</code></p>
+    <p>To install a package, run the following commands:</p>
+    <p><code>flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo</code></p>
+    <p style="margin-bottom: 40px"><code>flatpak install &lt;&#8203;package id&gt;</code></p>
 </div>
 """
 
@@ -126,7 +126,6 @@ if __name__ == "__main__":
     </html>
     """
 
-    page = minify_html.minify(page, minify_css = True)
     page = BeautifulSoup(page, "lxml").prettify()
     r = re.compile(r'^(\s*)', re.MULTILINE)
     page = r.sub(r'\1\1\1\1', page).strip()
