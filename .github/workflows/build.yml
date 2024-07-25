@@ -1,10 +1,13 @@
 name: Flatter
 
 on:
+  push:
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
   flatter:
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, 'noci') }}
     name: Flatter
     runs-on: ubuntu-latest
     container:
@@ -82,6 +85,7 @@ jobs:
           repo-url: https://flatpak.toastbits.dev
 
   deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, 'noci') }}
     name: Deploy
     runs-on: ubuntu-latest
     needs: flatter
