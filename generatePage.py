@@ -51,6 +51,17 @@ def generatePackageInfoContent(info: dict) -> str:
     summary = info.get("summary") or "(No summary)"
     icon = info.get("icon")
 
+    version = None
+    releases = (info.get("releases") or {"release": {}})["release"]
+    if isinstance(releases, dict):
+        releases = [releases]
+
+    if len(releases) != 0:
+        version = releases[0].get("@version")
+
+    if version is None:
+        version = "unknown"
+
     vcs_url = None
     for url in info.get("url") or []:
         if url["@type"] == "vcs-browser":
@@ -71,6 +82,7 @@ def generatePackageInfoContent(info: dict) -> str:
         <div style='display: flex; gap: 10px; justify-content: center;'>
             {title}
             <h5 class='center'>id={id}</h5>
+            <h5 class='center'>version={version}</h5>
             <h5 class='center'>license={license}</h5>
         </div>
     """
