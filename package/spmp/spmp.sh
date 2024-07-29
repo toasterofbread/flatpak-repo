@@ -1,3 +1,1 @@
-# 0.4.0
-# /app/jre/bin/java -jar /app/bin/spmp.jar --flatpak "$@"
-/app/jre/bin/java -jar /app/bin/spmp.jar "$@"
+/app/jre/bin/java -Djava.library.path=/app/lib -jar /app/bin/spmp.jar --flatpak "$@"

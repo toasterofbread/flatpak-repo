@@ -25,6 +25,14 @@ finish-args:
   # Notifications
   - --talk-name=org.freedesktop.Notifications
 
+  # Audio playback
+  - --filesystem=xdg-run/pipewire-0:ro
+  - --socket=pulseaudio
+
+  # App indicator
+  - --talk-name=org.gnome.SettingsDaemon.MediaKeys
+  - --talk-name=org.kde.StatusNotifierWatcher
+
 modules:
   - name: openjdk
     buildsystem: simple
@@ -51,6 +59,59 @@ modules:
       - type: file
         path: spmp.sh
       - type: file
-        url: https://github.com/toasterofbread/spmp/releases/download/v0.3.2/spmp-v0.3.2-linux-x86_64.jar
-        sha256: 31ca902f087a445499d5df41b1e57c3348a9fe2919d03bddda7b1cadfbd68067
+        url: https://github.com/toasterofbread/spmp/releases/download/v0.4.0-RC2/spmp-v0.4.0-RC2-linux-x86_64.jar
+        sha256: f1e2c228c38438f779f7f8eeb4a58832a9985366c840a67696535fb9fdf93670
         dest-filename: spmp.jar
+
+  - name: libass
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+    config-opts:
+      - --disable-static
+    sources:
+      - type: git
+        url: https://github.com/libass/libass.git
+        tag: 0.17.3
+        commit: e46aedea0a0d17da4c4ef49d84b94a7994664ab5
+
+  - name: libplacebo
+    buildsystem: meson
+    config-opts:
+      - -Dauto_features=disabled
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+    sources:
+      - type: git
+        url: https://github.com/haasn/libplacebo.git
+        mirror-urls:
+          - https://code.videolan.org/videolan/libplacebo.git
+        tag: v7.349.0
+        commit: 1fd3c7bde7b943fe8985c893310b5269a09b46c5
+
+  - name: mpv
+    buildsystem: meson
+    config-opts:
+      - -Dbuildtype=release
+      - -Dstrip=true
+      - -Ddefault_library=shared
+      - -Dlibmpv=true
+      - -Dauto_features=disabled
+      - -Dcplayer=false
+      - -Dbuild-date=false
+      - -Dlua=disabled
+      - -Dgl=disabled
+
+      # Audio
+      - -Dalsa=enabled
+      - -Djack=enabled
+      - -Dpipewire=enabled
+      - -Dpulse=enabled
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+    sources:
+      - type: archive
+        url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.38.0.tar.gz
+        sha256: 86d9ef40b6058732f67b46d0bbda24a074fae860b3eaae05bab3145041303066
