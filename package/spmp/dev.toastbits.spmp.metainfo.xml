@@ -56,6 +56,18 @@
     <url type="vcs-browser">https://github.com/toasterofbread/spmp</url>
 
     <releases>
+        <release version="v0.4.0-RC4" date="2024-07-31">
+            <url type="details">https://github.com/toasterofbread/spmp/releases/tag/v0.4.0-RC4</url>
+            <description>
+                <p>Pre-release version primarily created for testing packaging methods.</p>
+            </description>
+        </release>
+        <release version="v0.4.0-RC3" date="2024-07-30">
+            <url type="details">https://github.com/toasterofbread/spmp/releases/tag/v0.4.0-RC3</url>
+            <description>
+                <p>Pre-release version primarily created for testing packaging methods.</p>
+            </description>
+        </release>
         <release version="v0.4.0-RC2" date="2024-07-29">
             <url type="details">https://github.com/toasterofbread/spmp/releases/tag/v0.4.0-RC2</url>
             <description>

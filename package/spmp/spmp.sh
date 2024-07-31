@@ -1,1 +1,1 @@
-/app/jre/bin/java -Djava.library.path=/app/lib -jar /app/bin/spmp.jar --flatpak "$@"
+LD_LIBRARY_PATH="/app/lib" /app/dist/bin/spmp --flatpak "$@"
