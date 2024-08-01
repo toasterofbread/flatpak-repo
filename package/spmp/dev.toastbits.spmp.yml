@@ -60,8 +60,8 @@ modules:
       - type: file
         path: spmp.sh
       - type: archive
-        url: https://github.com/toasterofbread/spmp/releases/download/v0.4.0-RC4/spmp-v0.4.0-RC4-linux-x86_64.tar.gz
-        sha256: 8cc40c15f7a966beff03d53afa58a205610b49056dc0db15e5684a6b251b9fe3
+        url: https://github.com/toasterofbread/spmp/releases/download/v0.4.0-RC5/spmp-v0.4.0-RC5-linux-x86_64.tar.gz
+        sha256: 2769ec495f4b58f6b5a828daaadca0b556bf99ecbaa508e9cde1524baf81788a
 
   - name: libass
     cleanup:
