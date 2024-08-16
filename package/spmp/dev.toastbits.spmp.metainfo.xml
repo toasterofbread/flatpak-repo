@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
+<component type="desktop-application">
     <id>dev.toastbits.spmp</id>
     <launchable type="desktop-id">dev.toastbits.spmp.desktop</launchable>
 
     <name>SpMp</name>
     <summary>A customisable YouTube Music client</summary>
     <description>
-        <h2>Features</h2>
+        <p>A YouTube Music client with a focus on customisation of colours and song metadata, built using Compose Multiplatform for Android and desktop</p>
+        <p>Features</p>
         <ul>
             <li>Edit song, artist, and playlist titles</li>
             <li>Select multiple songs for batch actions on any screen</li>
             <li>Customisable colour theming throughout the app</li>
-                <ul style="padding-left: 50px">
-                    <li>Use a colour from the current song's thumbnail</li>
-                    <li>Or use a custom colour set per-song or globally</li>
-                </ul>
             <li>Display app UI and metadata like song titles in separate languages</li>
             <li>In-app YouTube Music login</li>
             <li>Display time-synchronised lyrics from KuGou and PetitLyrics</li>
-                <ul style="padding-left: 50px">
-                    <li>Timed lyrics are displayed in a toggleable bar above every app page</li>
-                    <li>Furigana (readings) display above Japanese kanji within lyrics</li>
-                </ul>
             <li>Pin any song, playlist, album, or artist to the top of the main page</li>
             <li>Customisable Discord rich presence</li>
             <li>Easily insert songs at any position in the queue</li>
