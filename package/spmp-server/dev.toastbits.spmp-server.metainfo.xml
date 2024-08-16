@@ -8,7 +8,7 @@
         <p>SpMs (short for spmp-server) is the server component of SpMp's desktop version. The primary mode of SpMs is to run a server instance over TCP on the specified port. It comes packaged with a command-line interface for controlling the server itself as well as interacting with other servers.</p>
     </description>
 
-    <icon type="remote">https://raw.githubusercontent.com/toasterofbread/spmp/main/metadata/en-US/images/icon.png</icon>
+    <icon type="stock">dev.toastbits.spmp-server</icon>
 
     <metadata_license>CC0-1.0</metadata_license>
     <project_license>GPL-3.0-only</project_license>

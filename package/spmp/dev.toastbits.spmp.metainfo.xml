@@ -36,7 +36,7 @@
         </screenshot>
     </screenshots>
 
-    <icon type="remote">https://raw.githubusercontent.com/toasterofbread/spmp/35d683bcbcef06b6622961c98464de610b5e5925/metadata/en-US/images/icon.png</icon>
+    <icon type="stock">dev.toastbits.spmp</icon>
 
     <metadata_license>CC0-1.0</metadata_license>
     <project_license>GPL-3.0-only</project_license>
