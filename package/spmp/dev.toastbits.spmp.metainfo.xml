@@ -48,6 +48,13 @@
     <url type="translate">https://github.com/toasterofbread/spmp/wiki/App-localisation</url>
     <url type="vcs-browser">https://github.com/toasterofbread/spmp</url>
 
+    <categories>
+        <category>Music</category>
+        <category>Audio</category>
+        <category>AudioVideo</category>
+        <category>Java</category>
+    </categories>
+
     <releases>
         <release version="v0.4.0-RC6" date="2024-08-03">
             <url type="details">https://github.com/toasterofbread/spmp/releases/tag/v0.4.0-RC6</url>
