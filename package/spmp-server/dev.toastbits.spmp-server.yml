@@ -160,3 +160,11 @@ modules:
         sha256: b71ef7f90414257d23b1483811a9e159f94b7991f5715e0be10447b17350839c
         dest-filename: spms.kexe
         only-arches: [aarch64]
+
+  - name: appstream-metainfo
+    buildsystem: simple
+    build-commands:
+      - install -D dev.toastbits.spmp-server.metainfo.xml /app/share/metainfo/dev.toastbits.spmp-server.metainfo.xml
+    sources:
+      - type: file
+        path: dev.toastbits.spmp-server.metainfo.xml

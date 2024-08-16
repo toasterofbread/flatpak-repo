@@ -39,16 +39,6 @@ modules:
     build-commands:
       - /usr/lib/sdk/openjdk/install.sh
 
-  - name: icon
-    buildsystem: simple
-    build-commands:
-      - install -D icon.png /app/share/icons/hicolor/512x512/apps/dev.toastbits.spmp.png
-    sources:
-      - type: file
-        url: https://raw.githubusercontent.com/toasterofbread/spmp/35d683bcbcef06b6622961c98464de610b5e5925/metadata/en-US/images/icon.png
-        dest-filename: icon.png
-        sha256: ee2d86557aed3fe180d793624302d8ef4d45dac404cb78b00d7e30bc544bdeb0
-
   - name: spmp
     buildsystem: simple
     build-commands:
@@ -62,6 +52,24 @@ modules:
       - type: archive
         url: https://github.com/toasterofbread/spmp/releases/download/v0.4.0-RC6/spmp-v0.4.0-RC6-linux-x86_64.tar.gz
         sha256: 363807d4c7b4cf1a6fcb940010978ec7cbf2db275236201599118b9c8d04816e
+
+  - name: icon
+    buildsystem: simple
+    build-commands:
+      - install -D icon.png /app/share/icons/hicolor/512x512/apps/dev.toastbits.spmp.png
+    sources:
+      - type: file
+        url: https://raw.githubusercontent.com/toasterofbread/spmp/35d683bcbcef06b6622961c98464de610b5e5925/metadata/en-US/images/icon.png
+        dest-filename: icon.png
+        sha256: ee2d86557aed3fe180d793624302d8ef4d45dac404cb78b00d7e30bc544bdeb0
+
+  - name: appstream-metainfo
+    buildsystem: simple
+    build-commands:
+      - install -D dev.toastbits.spmp.metainfo.xml /app/share/metainfo/dev.toastbits.spmp.metainfo.xml
+    sources:
+      - type: file
+        path: dev.toastbits.spmp.metainfo.xml
 
   - name: libass
     cleanup:
