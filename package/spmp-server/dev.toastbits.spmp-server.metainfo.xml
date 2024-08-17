@@ -21,18 +21,10 @@
     <url type="vcs-browser">https://github.com/toasterofbread/spmp-server</url>
 
     <releases>
-        <release version="v1.0.0" date="2024-05-03">
-        <url type="details">https://github.com/toasterofbread/spmp-server/releases/tag/v1.0.0</url>
+        <release version="v0.4.0" date="2024-08-17">
+        <url type="details">https://github.com/toasterofbread/spmp-server/releases/tag/v0.4.0</url>
         <description>
-            <p>Release in preparation for publishing to Flathub</p>
-
-            <p>Beginning with this release, spmp-server version names are decoupled from spmp version names.</p>
-            <p>Changes</p>
-            <ul>
-                <li>Add media session control using mediasession-kt (currently only on Linux-x86_64)</li>
-                <li>Fix crash when gtk_init fails</li>
-                <li>Improve messages when an exception is ignored</li>
-            </ul>
+            <p>This release corresponds to v0.4.0 of spmp</p>
         </description>
         </release>
     </releases>
