@@ -30,7 +30,6 @@ finish-args:
   - --socket=pulseaudio
 
   # App indicator
-  - --talk-name=org.gnome.SettingsDaemon.MediaKeys
   - --talk-name=org.kde.StatusNotifierWatcher
 
 modules:
@@ -38,36 +37,6 @@ modules:
     buildsystem: simple
     build-commands:
       - /usr/lib/sdk/openjdk/install.sh
-
-  - name: spmp
-    buildsystem: simple
-    build-commands:
-      - install -Dm755 spmp.sh /app/bin/spmp
-      - mkdir -p /app/dist
-      - mv ./* /app/dist
-    only-arches: [x86_64]
-    sources:
-      - type: file
-        path: spmp.sh
-      - type: archive
-        url: https://github.com/toasterofbread/spmp/releases/download/v0.4.0/spmp-v0.4.0-linux-x86_64.tar.gz
-        sha256: 1489923471cf10260e731a6bbadda09f1d3ae10b6d657d68100153e2cee25057
-
-  - name: other-files
-    buildsystem: simple
-    build-commands:
-      - install -D icon.png /app/share/icons/hicolor/512x512/apps/dev.toastbits.spmp.png
-      - install -D dev.toastbits.spmp.metainfo.xml /app/share/metainfo/dev.toastbits.spmp.metainfo.xml
-      - install -D dev.toastbits.spmp.desktop /app/share/applications/dev.toastbits.spmp.desktop
-    sources:
-      - type: file
-        url: https://raw.githubusercontent.com/toasterofbread/spmp/35d683bcbcef06b6622961c98464de610b5e5925/metadata/en-US/images/icon.png
-        dest-filename: icon.png
-        sha256: ee2d86557aed3fe180d793624302d8ef4d45dac404cb78b00d7e30bc544bdeb0
-      - type: file
-        path: dev.toastbits.spmp.metainfo.xml
-      - type: file
-        path: dev.toastbits.spmp.desktop
 
   - name: libass
     cleanup:
@@ -121,3 +90,40 @@ modules:
       - type: archive
         url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.38.0.tar.gz
         sha256: 86d9ef40b6058732f67b46d0bbda24a074fae860b3eaae05bab3145041303066
+
+  - name: spmp
+    buildsystem: simple
+    build-commands:
+      - install -D icon.png /app/share/icons/hicolor/512x512/apps/dev.toastbits.spmp.png
+
+      - install -D dev.toastbits.spmp.metainfo.xml /app/share/metainfo/dev.toastbits.spmp.metainfo.xml
+
+      - |
+        desktop-file-edit \
+          --set-icon="dev.toastbits.spmp" \
+          --set-key="Exec" --set-value="spmp" \
+          dev.toastbits.spmp.desktop
+      - install -D dev.toastbits.spmp.desktop /app/share/applications/dev.toastbits.spmp.desktop
+
+      - install -Dm755 spmp.sh /app/bin/spmp
+      - mkdir -p /app/dist
+      - mv ./* /app/dist
+    only-arches: [x86_64]
+    sources:
+      - type: file
+        path: spmp.sh
+      - type: archive
+        url: https://github.com/toasterofbread/spmp/releases/download/v0.4.1/spmp-v0.4.1-linux-x86_64.tar.gz
+        sha256: 0eeebaa74668e0e407edd003d83cf72b219ae23b380cd086f75ad88a6e761b94
+      - type: file
+        url: https://raw.githubusercontent.com/toasterofbread/spmp/ea9511c5fceee74859590c1036aada22c0e6ca6f/metadata/dev.toastbits.spmp.metainfo.xml
+        dest-filename: dev.toastbits.spmp.metainfo.xml
+        sha256: 8daa33f00246493d28edaa8425ddf843b097e1fb9d405c221a57be7cbb092578
+      - type: file
+        url: https://raw.githubusercontent.com/toasterofbread/spmp/35d683bcbcef06b6622961c98464de610b5e5925/metadata/en-US/images/icon.png
+        dest-filename: icon.png
+        sha256: ee2d86557aed3fe180d793624302d8ef4d45dac404cb78b00d7e30bc544bdeb0
+      - type: file
+        url: https://raw.githubusercontent.com/toasterofbread/spmp/a3050bd03c5468b9ce5327de1b1561245634d98d/desktopApp/appimage/spmp.desktop
+        dest-filename: dev.toastbits.spmp.desktop
+        sha256: 7a60baec1bb2b0c461032ffc7e2ec104d3f054938b0df7d620b23323a2ee8af6

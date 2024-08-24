@@ -30,7 +30,6 @@ finish-args:
   - --own-name=org.mpris.MediaPlayer2.spmp
 
   # App indicator
-  - --talk-name=org.gnome.SettingsDaemon.MediaKeys
   - --talk-name=org.kde.StatusNotifierWatcher
 
 cleanup:
