@@ -113,8 +113,8 @@ modules:
       - type: file
         path: spmp.sh
       - type: archive
-        url: https://github.com/toasterofbread/spmp/releases/download/v0.4.1/spmp-v0.4.1-linux-x86_64.tar.gz
-        sha256: 0eeebaa74668e0e407edd003d83cf72b219ae23b380cd086f75ad88a6e761b94
+        url: https://github.com/toasterofbread/spmp/releases/download/v0.4.2/spmp-v0.4.2-linux-x86_64.tar.gz
+        sha256: a131a520df8b5df92fc14a478ed12633e72925692105d318739b83eb107e7340
       - type: file
         url: https://raw.githubusercontent.com/toasterofbread/spmp/ea9511c5fceee74859590c1036aada22c0e6ca6f/metadata/dev.toastbits.spmp.metainfo.xml
         dest-filename: dev.toastbits.spmp.metainfo.xml
